@@ -3,6 +3,7 @@
 # Created at 2020-02-14
 # Usage: .curl https://webmaster.coding.net/p/t/d/t/git/raw/master/README.md/daomonit.sh | bash
 # Usage: .curl https://raw.githubusercontent.com/cnrock/t/master/daomonit.sh | bash
+# Usage: .curl https:/cnrock.github.io/t/daomonit.sh | bash
 
 # part1,解决面板找不到主机，提示“连接超时，请刷新重联” 问题
 apt-get update --fix-missing

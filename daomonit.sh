@@ -18,3 +18,6 @@ service docker restart
 
 #part3,下载dao-2048测试
 docker pull daocloud.io/daocloud/dao-2048:latest
+
+#part4,再次重启监控进程
+service daomonit restart

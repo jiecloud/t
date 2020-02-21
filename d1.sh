@@ -1,8 +1,6 @@
 #!/bin/bash
 # Author: jie.wan@daocloud.io
 # Created at 2020-02-14
-# Usage: curl https://webmaster.coding.net/p/t/d/t/git/raw/master/daomonit.sh | bash
-# Usage: curl https://raw.githubusercontent.com/cnrock/t/master/daomonit.sh | bash
 # Usage: curl https:/cnrock.github.io/t/daomonit.sh | bash
 # Usage: curl https:/cnrock.github.io/t/d1.sh | bash
 

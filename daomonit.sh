@@ -1,8 +1,6 @@
 #!/bin/bash
 # Author: jie.wan@daocloud.io
 # Created at 2020-02-14
-# Usage: curl https://webmaster.coding.net/p/t/d/t/git/raw/master/README.md/daomonit.sh | bash
-# Usage: curl https://raw.githubusercontent.com/cnrock/t/master/daomonit.sh | bash
 # Usage: curl https:/cnrock.github.io/t/daomonit.sh | bash
 # Usage: curl https:/cnrock.github.io/t/d1.sh | bash
 
@@ -12,7 +10,9 @@ apt-get install ca-certificates -y
 service daomonit restart
 
 # part2,解决x509问题
-echo -n | openssl s_client -showcerts -connect daocloud.io:443 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /usr/local/share/ca-certificates/ca.crt
+echo -n | openssl s_client -showcerts -connect daocloud.io:443 2>/dev/null \
+| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > \
+ /usr/local/share/ca-certificates/ca.crt
 update-ca-certificates
 service docker restart
 

@@ -12,7 +12,9 @@ apt-get install ca-certificates -y
 service daomonit restart
 
 # part2,解决x509问题
-echo -n | openssl s_client -showcerts -connect daocloud.io:443 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /usr/local/share/ca-certificates/ca.crt
+echo -n | openssl s_client -showcerts -connect daocloud.io:443 2>/dev/null \
+| sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > \
+ /usr/local/share/ca-certificates/ca.crt
 update-ca-certificates
 service docker restart
 

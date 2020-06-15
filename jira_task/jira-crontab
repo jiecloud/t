@@ -1,0 +1,6 @@
+31 9 * * 1-5 python3 /root/jira_task/solution1.bot.day.py
+30 9 * * 1-5 python3 /root/jira_task/solution.bot.day.py
+31 18 * * 1-5 python3 /root/jira_task/solution1.bot.night.py
+30 18 * * 1-5 python3 /root/jira_task/solution.bot.night.py
+01 9 * * 1-7 python3 /root/jira_task/2group.bot.day.py
+01 18 * * 1-7 python3 /root/jira_task/2group.bot.night.py

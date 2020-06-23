@@ -16,6 +16,6 @@ RUN apk --no-cache add curl tar \
 VOLUME /alertmanager
 VOLUME /etc/alertmanager
 ADD conf/config.yml /etc/alertmanager/
-ENTRYPOINT ["alertmanager"] 
+ENTRYPOINT ["alertmanager"]
 CMD ["--config.file=/etc/alertmanager/config.yml", "--storage.path=/alertmanager"]
 EXPOSE 9093

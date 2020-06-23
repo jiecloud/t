@@ -3,11 +3,11 @@ FROM alpine
 LABEL maintainer="webmaster@wanjie.info"
 LABEL version="0.01"
 
-ENV alertmanager_version 0.21
+ENV alertmanager_version 0.21.0
 
 WORKDIR /alertmanager
 
-RUN apk --no-cache add curl \
+RUN apk --no-cache add curl tar \
     && curl -LO https://github.com/prometheus/alertmanager/releases/download/v${alertmanager_version}/alertmanager-${alertmanager_version}.linux-amd64.tar.gz \
     && tar -xvzf alertmanager-${alertmanager_version}.linux-amd64.tar.gz \
     && cp alertmanager-${alertmanager_version}.linux-amd64/alertmanager /bin \

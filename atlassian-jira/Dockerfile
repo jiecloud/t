@@ -49,11 +49,8 @@ VOLUME ["/var/atlassian/jira", "/opt/atlassian/jira/logs"]
 WORKDIR /var/atlassian/jira
 
 COPY "docker-entrypoint.sh" "/"
+COPY  atlassian-extras-3.2.jar  ${JIRA_INSTALL}/atlassian-jira/WEB-INF/lib/
 ENTRYPOINT ["/docker-entrypoint.sh"]
-
-# copy agent for crack and add env
-COPY "atlassian-agent.jar" /opt/atlassian/jira/
-RUN echo 'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"' >> /opt/atlassian/jira/bin/setenv.sh
 
 
 # Run Atlassian JIRA as a foreground process by default.

@@ -1,0 +1,18 @@
+#Dockerfile with more env
+FROM atlassian/confluence-server:7.5.2
+MAINTAINER wanjie <jie.wan@daocloud.io>
+ENV  JAVA_OPTS='-Duser.timezone=GMT+08 -Dconfluence.document.conversion.fontpath=/usr/share/fonts/winfonts/' \
+      && ATL_DB_TYPE=mysql \
+      && JAVA_OPTS="-Xms256m -Xmx2048m -XX:PermSize=128m -XX:MaxPermSize=512m" \
+      && ATL_JDBC_USER=confluence \
+      && ATL_JDBC_PASSWORD=TFWiki.jira \
+      && ATL_JDBC_URL="jdbc:mysql://mysql:3306/confluence?sessionVariables=tx_isolation='READ-COMMITTED'&amp;useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;useSSL=false" 
+
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y nano fontconfig xfonts-utils \
+    && apt-get clean autoclean && apt-get autoremove -y \
+    && mkdir /usr/share/fonts/winfonts
+
+COPY "mysql-connector-java-5.1.49.jar" "/opt/atlassian/confluence/lib"
+COPY winfonts/ /usr/share/fonts/winfonts/
+

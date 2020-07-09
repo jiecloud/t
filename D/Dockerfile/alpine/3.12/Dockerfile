@@ -1,9 +1,7 @@
 FROM alpine:3.12
 LABEL MAINTAINER="webmaster@wanjie.info"
 
-ENV SREPO="http://dl-cdn.alpinelinux.org" \
-    REPO="https://mirrors.aliyun.com"     \
-    TIMEZONE="Asia/Shanghai"              \
+ENV TIMEZONE="Asia/Shanghai"              \
     BUILD_DEPS="tzdata \
                 curl \
                 sudo \
@@ -13,8 +11,7 @@ ENV SREPO="http://dl-cdn.alpinelinux.org" \
                 sshpass \
                 acl"
 
-RUN sed -i s@${SREPO}@${REPO}@g /etc/apk/repositories       && \
-    apk update                                              && \
+RUN apk update                                              && \
     apk upgrade                                             && \
     apk add --no-cache ${BUILD_DEPS}                        && \
     cp -rfv  /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \

@@ -1,0 +1,37 @@
+yum install docker-ce yum-utils device-mapper-persistent-data lvm2 -y
+ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+ yum install docker-ce -y
+ systemctl enable docker && systemctl start docker
+ vi /etc/profile
+ 
+加2行
+
+HISTTIMEFORMAT='%F %T '
+HISTSIZE="5000"
+
+ 
+ vi .bash_profile
+ 
+ 加2行
+ HISTCONTROL=ignorespace
+ shopt -s histappend
+ 
+ source .bash_profile
+ 
+ mkdir ~/.docker
+ cat > ~/.docker/config.json << EOF
+ {
+ "experimental": "enabled"
+ }
+ EOF
+ sudo docker run -d --rm --name v2ray -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy  pengchujin/v2ray_ws:0.10 o3.nano1.xyz V2RAY_WS 05633a30-a564-11ea-bb37-0242ac130002 && sleep 3s && sudo docker logs v2ray
+ 
+ wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"
+ 
+ chmod +x tcp.sh
+ ./tcp.sh
+ 
+ 
+ cat ~/.ssh/authorized_keys
+ 
+ 

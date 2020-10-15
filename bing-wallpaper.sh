@@ -1,5 +1,6 @@
 #!/bin/sh
 PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin
+# come from https://github.com/lpikora/bing-wallpaper-daily-mac-multimonitor
 
 readonly SCRIPT=$(basename "$0")
 readonly VERSION='1.0.0'

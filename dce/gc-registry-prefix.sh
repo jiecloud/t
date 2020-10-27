@@ -15,6 +15,8 @@
 #    ./gc-registry-prefix.sh -h "http://127.0.0.1" -a "admin:password" -p "days=7"
 #    ./gc-registry-prefix.sh -h "http://127.0.0.1" -a "admin:password" -n abcd
 #    ./gc-registry-prefix.sh --help
+#   temp std log
+# ./gc_registry_prefix.sh -h "https://10.10.150.105" -a "admin:password" -p count=3 -n good1 > /tmp/stdout.log 2>/tmp/stderr.log
 
 #set -ex
 

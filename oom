@@ -1,0 +1,2 @@
+kubectl get pod --all-namespaces -o=jsonpath="{range .items[*]}{.status.containerStatuses[0].state.running.startedAt}{'\t'}{.metadata.name}{'\t'}{.status.containerStatuses[0].lastState.terminated.reason}{'\n'}{end}"|sort|grep "OOMKilled"
+kubectl get pod --all-namespaces -o=jsonpath="{range .items[*]}{.status.containerStatuses[0].state.running.startedAt}{'\t'}{.metadata.name}{'\t'}{.status.containerStatuses[0].lastState.terminated.reason}{'\n'}{end}"|sort

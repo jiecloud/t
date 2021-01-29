@@ -49,26 +49,26 @@ docker info | grep -i "data space" | grep -vi meta
 
 # 打开文件数，打开文件数（参考值：小于 60000）
 wenjisnshu=$(lsof -w |wc -l)
-echo -e "$q--打开文件数 $wenjisnshu （参考值：小于 60000）---" $e
+echo -e "$a--打开文件数 $wenjisnshu （参考值：小于 60000）---" $e
 
 #线程数（参考值：小于 6000）
 xianchengshu=$(ps -elf | wc -l)
 
-echo -e "$q--线程数 $xianchengshu （参考值：小于 6000）---" $e
+echo -e "$a--线程数 $xianchengshu （参考值：小于 6000）---" $e
 
 #网络连接数（参考值：小于 1000）
 lianjieshu=$(netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}')
 
-echo -e "$q--网络连接数 $lianjieshu （参考值：小于 1000）---" $e
+echo -e "$a--网络连接数 $lianjieshu （参考值：小于 1000）---" $e
 
-echo -e "$q----检测网络---" $e
-curl -I http://cn.bing.com &>/dev/null
-if [ $? == 0 ];
-then 
-    echo -e "$q----访问外网：成功---" $e
-else
-    echo -e "$q----访问外网：失败---" $e
-fi
+#echo -e "$q----检测网络---" $e
+#curl -I http://cn.bing.com &>/dev/null
+#if [ $? == 0 ];
+#then 
+#    echo -e "$q----访问外网：成功---" $e
+#else
+#    echo -e "$q----访问外网：失败---" $e
+#fi
 JH=$(crontab -l)
 echo -e "$q----计划任务：$JH" $e
 echo -e "$b----docker进行检查" $e
@@ -104,5 +104,9 @@ echo  -e "$b----以下为控制DCE控制阶段信息---" $e
 kubectl get cs
 kubectl get nodes | grep -v Ready
 kubectl get pods -o wide --all-namespaces | grep -v Running
+shibai=$(kubectl get pods -o wide --all-namespaces | grep -v Running|wc -l)
+echo -e "$c----失败的pod数量为：$shibai" $e
 
 echo  -e "$c------巡检结束---请核对信息-------" $e
+
+
